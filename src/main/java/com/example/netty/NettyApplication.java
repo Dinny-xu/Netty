@@ -20,7 +20,7 @@ public class NettyApplication {
         String port = env.getProperty("spring.port");
         String path = env.getProperty("spring.servlet.context-path");
         log.info("\n----------------------------------------------------------\n\t" +
-                "Application Poney Gzxf Mobile is running! Access URLs:\n\t" +
+                "Application Netty is running! Access URLs:\n\t" +
                 "Local: \t\thttp://localhost:" + port + path + "\n\t" +
                 "External: \thttp://" + ip + ":" + port + path + "\n\t" +
                 "swagger-ui: \thttp://" + ip + ":" + port + path + "swagger-ui.html\n\t" +
