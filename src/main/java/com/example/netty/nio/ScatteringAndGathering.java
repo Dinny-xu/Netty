@@ -1,5 +1,7 @@
 package com.example.netty.nio;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.net.InetSocketAddress;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -10,6 +12,7 @@ import java.util.Arrays;
 /**
  * NIO Buffer 数组完成读写操作 Scattering(分散) -- Gathering(聚集)
  */
+@Slf4j
 public class ScatteringAndGathering {
 
     public static void main(String[] args) throws Exception{
@@ -37,7 +40,7 @@ public class ScatteringAndGathering {
             while (byteRead < messageLength) {
                 socketChannel.read(byteBuffers);
                 byteRead += 1;
-                System.out.println("byteRead="+ byteRead);
+                log.info("byteRead:{}", byteRead);
                 //查看当前buffer position 和 limit
                 Arrays.stream(byteBuffers).map(buffer -> "position=" + buffer.position() + "limit=" + buffer.limit()).forEach(System.out::println);
             }
@@ -49,9 +52,8 @@ public class ScatteringAndGathering {
                 long write = socketChannel.write(byteBuffers);
                 byteWrite += write;
             }
-
             Arrays.asList(byteBuffers).forEach(Buffer::clear);
-            System.out.println("byteRead=" + byteRead + "byteWrite=" + byteWrite + "messageLength" + messageLength);
+            log.info("byteRead:{},byteWrite:{},messageLength:{}",byteRead,byteWrite,messageLength);
         }
     }
 }

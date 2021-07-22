@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 
 /**
- * Nio 文件通道文件复制-> 图片
+ * Nio 文件通道文件复制-> 图片 transferFrom
  */
 public class NioFileChannelFileCopy {
 

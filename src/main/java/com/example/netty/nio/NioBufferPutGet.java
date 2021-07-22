@@ -11,6 +11,7 @@ public class NioBufferPutGet {
 
     public static void main(String[] args) {
 
+        //准备缓冲区-> 划分内存作为缓冲区
         ByteBuffer byteBuffer =  ByteBuffer.allocate(64);
 
         //类型化方式放入数据
